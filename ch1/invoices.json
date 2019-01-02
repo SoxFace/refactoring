@@ -1,5 +1,3 @@
-// INVOICES
-
 [
   {
     "customer": "BigCo",
@@ -11,7 +9,8 @@
       {
         "playID": "as-like",
         "audience": 35
-      }, {
+      },
+      {
         "playID": "othello",
         "audience": 40
       }

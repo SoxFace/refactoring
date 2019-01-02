@@ -32,7 +32,7 @@ function statement (invoice, plays) {
      if ("comedy" === play.type) volumeCredits += Math.floor(perf.audience / 5);
 
      // print line for this order
-     result += `   ${play.name}: ${format(thisAmount/100)} (${perf.audience} seats)\n`;
+     result += `  ${play.name}: ${format(thisAmount/100)} (${perf.audience} seats)\n`;
      totalAmount += thisAmount;
  
   }
@@ -42,6 +42,8 @@ function statement (invoice, plays) {
   return result;
 
 }
+
+module.exports = statement;
  
 /* 
 OUTPUT
