@@ -1,0 +1,15 @@
+{
+  "name": "refactoring",
+  "version": "1.0.0",
+  "description": "Martin Fowler's Refactoring Examples",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "javascript",
+    "refactoring"
+  ],
+  "author": "Sonya Corcoran",
+  "license": "ISC"
+}
