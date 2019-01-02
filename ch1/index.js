@@ -6,7 +6,7 @@ function statement (invoice, plays) {
 
   for (let perf of invoice.performances) {
     const play = plays[perf.playID];
-    let thisAmount = 0;
+    let thisAmount = amountFor(perf, play);
 
   function amountFor(perf, play) {
     let thisAmount = 0;
