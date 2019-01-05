@@ -9,11 +9,14 @@
   [ iterations, angle, constants, axiom, rule1, rule2 ]
 */
 
-var canvas = document.getElementById('keith');
-    canvas.width = document.documentElement.clientWidth;
-    canvas.height = document.documentElement.clientHeight;
+function setupCanvas() {
+  var canvas = document.getElementById('lSystemArt');
+  canvas.width = document.documentElement.clientWidth;
+  canvas.height = document.documentElement.clientHeight;
+  return canvas;
+}
 
-var context = canvas.getContext('2d');
+var context = setupCanvas().getContext("2d");
     context.lineWidth = 10;
 
 var widthHalved = document.documentElement.clientWidth / 2;
