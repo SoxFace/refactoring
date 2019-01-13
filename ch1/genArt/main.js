@@ -14,8 +14,7 @@ var context = setupCanvas().getContext("2d");
 
 var widthHalved = document.documentElement.clientWidth / 2;
 var heightHalved = document.documentElement.clientHeight / 2;
-// var rule = "f+f−f−f+f+f+f−fff+fff+fff−f+f−f+f−f−f+f+f+f−f−f+f"
-var rule = "-YF+XFX+FY-";
+var rule = randomRule();
 var distance = 50;
 var direction = 100;
 var paths = [{ x: widthHalved, y: heightHalved }];
@@ -27,6 +26,7 @@ context.moveTo(paths[index].x, paths[index].y);
 index++;
 
 var speed = 50;
+setTimeout(draw, speed);
 
 function randomColour() {
   var colours = ["white", "red", "green", "blue"];
@@ -34,7 +34,11 @@ function randomColour() {
   return result;
 }
 
-setTimeout(draw, speed);
+function randomRule() {
+  var rules = ["-YF+XFX+FY-", "+XF-YFY-FX+", "f+f−f−f+f+f+f−fff+fff+fff−f+f−f+f−f−f+f+f+f−f−f+f"];
+  var result = rules[getRandomInt(rules.length)];
+  return result;
+}
 
 function setupCanvas() {
   var canvas = document.getElementById('lSystemArt');
@@ -110,6 +114,7 @@ function draw() {
   context.lineTo(paths[index].x, paths[index].y);
   context.stroke();
   index++;
+
   if (index < paths.length - 1) {
     setTimeout(draw, speed);
   }
