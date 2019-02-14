@@ -1,9 +1,15 @@
-function statement (invoice, plays) {
+function statement(invoice, plays) {
+  return renderPlainText(invoice, plays);
+}
+
+function renderPlainText(invoice, plays) {
   let result = `Statement for ${invoice.customer}\n`;
 
   for (let perf of invoice.performances) {
     // print line for this order
-    result += `  ${playFor(perf).name}: ${usd(amountFor(perf))} (${perf.audience} seats)\n`;
+    result += `  ${playFor(perf).name}: ${usd(amountFor(perf))} (${
+      perf.audience
+    } seats)\n`;
   }
 
   result += `Amount owed is ${usd(totalAmount())}\n`;
@@ -24,16 +30,21 @@ function statement (invoice, plays) {
       result += volumeCreditsFor(perf);
     }
     return result;
-  }  
+  }
 
   function usd(aNumber) {
-    return new Intl.NumberFormat("en-US", { style: "currency", currency: "USD", minimumFractionDigits: 2}).format(aNumber/100);
+    return new Intl.NumberFormat("en-US", {
+      style: "currency",
+      currency: "USD",
+      minimumFractionDigits: 2
+    }).format(aNumber / 100);
   }
 
   function volumeCreditsFor(aPerformance) {
     let result = 0;
     result += Math.max(aPerformance.audience - 30, 0);
-    if ("comedy" === playFor(aPerformance).type) result += Math.floor(aPerformance.audience / 5);
+    if ("comedy" === playFor(aPerformance).type)
+      result += Math.floor(aPerformance.audience / 5);
     return result;
   }
 
@@ -63,7 +74,6 @@ function statement (invoice, plays) {
 
     return result;
   }
-
 }
 
 module.exports = statement;
